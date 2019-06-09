@@ -53,6 +53,7 @@ setup(
 		'web.dispatch.object', # Object (class-based filesystem-like) dispatch.
 		'web.dispatch.resource', # Resource (RESTful) dispatch.
 		'cinje', # Template engine.
+		'web.db', # Database 
 	],
 
 	extras_require = dict(
