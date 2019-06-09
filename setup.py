@@ -48,7 +48,7 @@ setup(
 	],
 
 	install_requires = [
-		'WebCore>=2.0,<3', # Web framework.
+		'WebCore[development]>=2.0,<3', # Web framework.
 		'marrow.mongo', # Database connectivity.
 		'web.dispatch.object', # Object (class-based filesystem-like) dispatch.
 		'web.dispatch.resource', # Resource (RESTful) dispatch.
@@ -62,7 +62,6 @@ setup(
 			'pytest',
 			'pytest-spec',
 			'pytest-flakes',
-			'WebCore[development]>=2.0,<3', # Install additional framework-suggested development tools.
 		],
 	),
 
