@@ -29,8 +29,8 @@ setup(
 	]},
 
 	namespace_packages = [
-		'web',
-		'web.app'
+		'web', # primary namespace
+		'web.app', # application code goes here
 	],
 
 	setup_requires = [
@@ -44,6 +44,7 @@ setup(
 		'pytest-cov',
 		'pytest-spec',
 		'pytest-flakes',
+		'backlash', # debug tests
 	],
 
 	install_requires = [
@@ -61,6 +62,7 @@ setup(
 			'pytest',
 			'pytest-spec',
 			'pytest-flakes',
+			'backlash',  # Web-based interactive REPL shell and traceback explorer.
 		],
 	),
 
