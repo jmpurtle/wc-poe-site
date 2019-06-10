@@ -1,3 +1,5 @@
+"""Web application initial dispatch point, or "site root"."""
+
 # HTTP status code exception for "302 Found" redirection.
 from webob.exc import HTTPFound
 
