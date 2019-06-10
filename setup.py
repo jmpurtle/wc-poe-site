@@ -12,7 +12,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 setup(
 	name = "WebCore-PathOfExile-Site",
 	version = "0.1",
-
+	
 	description = "A clone of the Path of Exile website with forums built in WebCore.",
 	long_description = "",
 	url = "https://github.com/jmpurtle/wc-poe-site",
@@ -20,18 +20,18 @@ setup(
 	author_email = "hello@johnpurtle.com",
 	license = "mit",
 	keywords = [],
-
+	
 	packages = ('web.app.wc_poe_site', ),
 	include_package_data = True,
 	package_data = {'': [
 		'README.rst',
 		'LICENSE.txt'
 	]},
-
+	
 	setup_requires = [
 		'pytest-runner',
 	],
-
+	
 	tests_require = [
 		'pytest-runner',
 		'coverage',
@@ -41,7 +41,7 @@ setup(
 		'pytest-flakes',
 		'backlash', # debug tests
 	],
-
+	
 	install_requires = [
 		'WebCore[development]~=3.0', # Web framework.
 		'web.dispatch.object~=3.0', # Object (class-based filesystem-like) dispatch.
@@ -49,7 +49,7 @@ setup(
 		'marrow.mongo~=2.0', # Database connectivity.
 		'cinje~=1.1.2', # Template engine.
 	],
-
+	
 	extras_require = dict(
 		development = [
 			'pytest-runner',
@@ -59,6 +59,6 @@ setup(
 			'pytest-flakes',
 		],
 	),
-
+	
 	entry_points = {}
 )
