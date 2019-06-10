@@ -1,12 +1,6 @@
-#!/usr/bin/env python
-# encoding: utf-8
+#!/usr/bin/env python3
 
-import os
-
-from setuptools import setup, find_packages
-
-
-here = os.path.abspath(os.path.dirname(__file__))
+from setuptools import setup
 
 
 setup(
@@ -18,7 +12,7 @@ setup(
 	url = "https://github.com/jmpurtle/wc-poe-site",
 	author = "John Purtle",
 	author_email = "hello@johnpurtle.com",
-	license = "mit",
+	license = "MIT",
 	keywords = [],
 	
 	packages = ('web.app.wc_poe_site', ),

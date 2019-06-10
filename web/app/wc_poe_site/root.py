@@ -1,5 +1,4 @@
-# An easy way to safely combine paths.
-from pathlib import PurePosixPath
+"""Web application initial dispatch point, or "site root"."""
 
 # HTTP status code exception for "302 Found" redirection.
 from webob.exc import HTTPFound
@@ -14,8 +13,5 @@ class GameAdvert:
 
 	def __call__(self):
 		"""Called to handle direct requests to the web root itself."""
-		
-		# Identify where this application is starting from.
-		path = PurePosixPath(self._ctx.path[-1][1])
 
-		return HTTPFound(location=str(path / 'Game')) # Issue the redirect.
+		return HTTPFound(location=str(self._ctx.path.current / 'Game')) # Issue the redirect.
