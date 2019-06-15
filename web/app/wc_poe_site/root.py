@@ -17,7 +17,16 @@ class Site:
 		self._ctx = context # Store the "request context" for later use.
 
 	def __getitem__(self, name):
-		return {'name': name} # Pretending for now
+		data = self._ctx.db.sitepages.find_one({'_id': name})
+
+		if not data: # If no record was found, populate some default data.
+			data = {
+				'_id': name,
+				'content': None,
+				'modified': None,
+			}
+
+		return data
 
 	def get(self):
 		"""Called to handle direct requests to the web root itself."""

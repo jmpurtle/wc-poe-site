@@ -8,7 +8,7 @@ class SitePage:
 		self._page = page # The data associated with our current site page
 
 	def get(self):
-		return "I'm a site page named " + self._page['name'];
+		return self._page
 
 	def post(self, content):
 		"""Update the in-database content for the current page."""
