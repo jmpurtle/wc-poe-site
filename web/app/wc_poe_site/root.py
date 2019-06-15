@@ -1,7 +1,11 @@
 """Web application initial dispatch point, or "site root"."""
+from datetime import datetime # Python's standard date + time object.
 
 # HTTP status code exception for "302 Found" redirection.
 from webob.exc import HTTPFound
+
+# MongoDB exceptions that may be raised when manipulating data.
+from pymongo.errors import DuplicateKeyError
 
 # Get a reference to our SitePage resource class.
 from .sitePage import SitePage
@@ -34,4 +38,25 @@ class Site:
 		return HTTPFound(location=str(self._ctx.path.current / 'Game')) # Issue the redirect.
 
 	def post(self, name, content):
-		return {'ok': True} # For now, we only pretend.
+		try:
+			result = self._ctx.db.sitepages.insert_one({
+				'_id': name,
+				'content': content,
+				'modified': datetime.utcnow(),
+			})
+
+		except DuplicateKeyError:
+			return {
+				'ok': False,
+				'reason': 'duplicate',
+				'message': "A page with that name already exists.",
+				'name': name,
+			}
+
+		# All is well, so we inform the client.
+		return {
+			'ok': True,
+			'acknowledged': result.acknowledged,
+			'name': result.inserted_id
+		}
+		
