@@ -11,10 +11,10 @@ from web.ext.db import DBExtension
 from web.db.mongo import MongoDBConnection
 
 # Get a reference to our GameAdvert root object.
-from web.app.wc_poe_site.root import GameAdvert
+from web.app.wc_poe_site.root import Site
 
 # This is our WSGI application instance.
-app = Application(GameAdvert, extensions=[
+app = Application(Site, extensions=[
 	AnnotationExtension(),
 	DebugExtension(),
 	SerializationExtension(),
