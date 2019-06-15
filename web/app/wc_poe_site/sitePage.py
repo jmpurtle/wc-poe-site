@@ -9,4 +9,11 @@ class SitePage:
 
 	def get(self):
 		return "I'm a site page named " + self._page['name'];
-		
+
+	def post(self, content):
+		"""Update the in-database content for the current page."""
+		return {'ok': True} # For now, we pretend
+
+	def delete(self):
+		"""Delete this page from the site"""
+		return {'ok': True} # For now, we only pretend.

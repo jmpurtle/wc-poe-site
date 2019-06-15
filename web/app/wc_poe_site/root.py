@@ -23,3 +23,6 @@ class Site:
 		"""Called to handle direct requests to the web root itself."""
 
 		return HTTPFound(location=str(self._ctx.path.current / 'Game')) # Issue the redirect.
+
+	def post(self, name, content):
+		return {'ok': True} # For now, we only pretend.
