@@ -12,7 +12,7 @@ class SitePage:
 	def get(self):
 		"""Retrieve the page data or render an HTML page."""
 
-		candidates = ['text/html'] + list(self._ctx.serialize)
+		candidates = ['text/html'] + list(self._ctx.serialize.types)
 		match = self._ctx.request.accept.best_match(candidates, default_match='text/html')
 
 		if match == 'text/html':
