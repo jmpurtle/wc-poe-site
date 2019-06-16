@@ -1,3 +1,5 @@
+from .template import render
+
 class SitePage:
 
 	__dispatch__ = 'resource'
@@ -8,6 +10,14 @@ class SitePage:
 		self._page = page # The data associated with our current site page
 
 	def get(self):
+		"""Retrieve the page data or render an HTML page."""
+
+		candidates = ['text/html'] + list(self._ctx.serialize)
+		match = self._ctx.request.accept.best_match(candidates, default_match='text/html')
+
+		if match == 'text/html':
+			return render(self._ctx, self, self._page)
+
 		return self._page
 
 	def post(self, content):
@@ -54,4 +64,3 @@ class SitePage:
 			'acknowledged': result.acknowledged,
 			'name': self._page['_id'],
 		}
-		
